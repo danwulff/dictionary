@@ -37,5 +37,39 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+
+
+
+    get("word/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("word", word);
+      model.put("template", "templates/word.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("word/:id/definition/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("word", word);
+      model.put("template", "templates/word-definition-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    // post("/tasks", (request, response) -> {
+    //   Map<String, Object> model = new HashMap<String, Object>();
+    //
+    //   Category category = Category.find(Integer.parseInt(request.queryParams("categoryId")));
+    //
+    //   String description = request.queryParams("description");
+    //   Task newTask = new Task(description);
+    //
+    //   category.addTask(newTask);
+    //
+    //   model.put("category", category);
+    //   model.put("template", "templates/category-tasks-success.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
+
   }
 }
