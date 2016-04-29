@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class DefinitionTest {
   @After
   public void tearDown() {
-    //to be added
+    Definition.clear();
   }
 
   @Test
