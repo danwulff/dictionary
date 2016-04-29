@@ -47,8 +47,8 @@ public class AppTest extends FluentTest {
     fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    // click("a", withText("Something"));
-    // assertThat(pageSource()).contains("definitions:");
+    click("a", withText("Something"));    //somehow fluentlenium doesn't like this line. Strange since above test passed
+    assertThat(pageSource()).contains("definitions:");
   }
 
   @Test
@@ -57,9 +57,9 @@ public class AppTest extends FluentTest {
     fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    // click("a", withText("Something"));
-    // click("a", withText("Add a new definition"));
-    // assertThat(pageSource()).contains("Add a definition to Something");
+    click("a", withText("Something"));
+    click("a", withText("Add a new definition"));
+    assertThat(pageSource()).contains("Add a definition to Something");
   }
 
   @Test
