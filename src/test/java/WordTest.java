@@ -36,4 +36,19 @@ public class WordTest {
     assertEquals(0, Word.all().size());
   }
 
+  //tests with definition logic
+
+  @Test public void getDefinitions_initiallyReturnsEmptyList_0() {
+    Word testWord = new Word("word");
+    assertEquals(0, testWord.getDefinitions().size());
+  }
+
+
+  @Test public void addDefinition_addsDefinitionToList_true() {
+    Word testWord = new Word("word");
+    Definition testDefinition = new Definition("a single distinct meaningful element of speech or writing");
+    testWord.addDefinition(testDefinition);
+    assertTrue(testWord.getDefinitions().contains(testDefinition));
+  }
+
 }

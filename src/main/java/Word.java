@@ -13,6 +13,14 @@ public class Word {
     return mWord;
   }
 
+  public void addDefinition(Definition definition) {
+
+  }
+
+  public ArrayList<Definition> getDefinitions() {
+    return null;
+  }
+
   public static ArrayList<Word> all() {
     return instances;
   }
