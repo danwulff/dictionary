@@ -6,4 +6,16 @@ public class Word {
 
   }
 
+  public String getWord() {
+    return "";
+  }
+
+  public static ArrayList<Word> all() {
+    return null;
+  }
+
+  public static void clear() {
+
+  }
+
 }

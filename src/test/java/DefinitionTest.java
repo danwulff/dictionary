@@ -30,7 +30,7 @@ public class DefinitionTest {
   }
 
   @Test
-  public void clear_emptiesAllTasksFromArrayList_0() {
+  public void clear_emptiesAllDefinitionsFromArrayList_0() {
     Definition testDefinition1 = new Definition("To state or set forth meaning");
     Definition testDefinition2 = new Definition("An explanation of the meaning of words");
     Definition.clear();
