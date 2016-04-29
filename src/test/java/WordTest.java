@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class WordTest {
   @After
   public void tearDown() {
-
+    Word.clear();
   }
 
   @Test
@@ -35,6 +35,24 @@ public class WordTest {
     Word.clear();
     assertEquals(0, Word.all().size());
   }
+
+  @Test public void getId_wordsInstantiateWithAnId_1() {
+    Word testWord = new Word("word");
+    assertEquals(1, testWord.getId());
+  }
+
+  @Test public void find_returnsWordWithSameId_secondWord () {
+    Word firstWord = new Word("word");
+    Word secondWord = new Word("another");
+    assertEquals(secondWord, Word.find(secondWord.getId()));
+  }
+
+  @Test
+  public void find_returnsNullWhenNoCategoryFound_null() {
+    assertEquals(null, Word.find(999));
+  }
+
+
 
   //tests with definition logic
 
