@@ -24,56 +24,56 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void categoryIsCreatedTest() {
+  public void wordIsCreatedTest() {
     goTo("http://localhost:4567/");
     click("a", withText("Add a New Word"));
-    fill("#name").with("Word");
+    fill("#word").with("Something");
     submit(".btn");
     assertThat(pageSource()).contains("Your word has been saved.");
   }
 
   @Test
-  public void categoryIsDisplayedTest() {
+  public void wordIsDisplayedTest() {
     goTo("http://localhost:4567/word/new");
-    fill("#name").with("Word");
+    fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    assertThat(pageSource()).contains("Word");
+    assertThat(pageSource()).contains("Something");
   }
 
   @Test
-  public void categoryShowPageDisplaysName() {
+  public void wordsShowPageDisplaysWord() {
     goTo("http://localhost:4567/word/new");
-    fill("#name").with("Word");
+    fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Word"));
-    assertThat(pageSource()).contains("Word");
+    click("a", withText("Something"));
+    assertThat(pageSource()).contains("Something");
   }
 
   @Test
-  public void categoryTasksFormIsDisplayed() {
+  public void wordDefinitionFormIsDisplayed() {
     goTo("http://localhost:4567/word/new");
-    fill("#name").with("Word");
+    fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Word"));
+    click("a", withText("Something"));
     click("a", withText("Add a new definition"));
-    assertThat(pageSource()).contains("Add a definition to Word");
+    assertThat(pageSource()).contains("Add a definition to Something");
   }
 
   @Test
-  public void tasksIsAddedAndDisplayed() {
+  public void definitionIsAddedAndDisplayed() {
     goTo("http://localhost:4567/word/new");
-    fill("#name").with("Word");
+    fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Word"));
+    click("a", withText("Something"));
     click("a", withText("Add a new definition"));
-    fill("#description").with("a single distinct meaningful element of speech or writing");
+    fill("#definition").with("a single distinct meaningful element of speech or writing");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Word"));
+    click("a", withText("Something"));
     assertThat(pageSource()).contains("a single distinct meaningful element of speech or writing");
   }
 
