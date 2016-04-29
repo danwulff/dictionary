@@ -56,20 +56,20 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // post("/tasks", (request, response) -> {
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //
-    //   Category category = Category.find(Integer.parseInt(request.queryParams("categoryId")));
-    //
-    //   String description = request.queryParams("description");
-    //   Task newTask = new Task(description);
-    //
-    //   category.addTask(newTask);
-    //
-    //   model.put("category", category);
-    //   model.put("template", "templates/category-tasks-success.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
+    post("/definition", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+
+      Word word = Word.find(Integer.parseInt(request.queryParams("wordId")));
+
+      String definition = request.queryParams("definition");
+      Definition newDefinition = new Definition(definition);
+
+      word.addDefinition(newDefinition);
+
+      model.put("definition", definition);
+      model.put("template", "templates/word-definition-success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
   }
 }
