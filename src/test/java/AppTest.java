@@ -47,7 +47,7 @@ public class AppTest extends FluentTest {
     fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Something"));    //somehow fluentlenium doesn't like this line. Strange since above test passed
+    click("#word1");  //created an id, since click("a", withText"Something") would not work
     assertThat(pageSource()).contains("definitions:");
   }
 
@@ -57,7 +57,7 @@ public class AppTest extends FluentTest {
     fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Something"));
+    click("#word1");
     click("a", withText("Add a new definition"));
     assertThat(pageSource()).contains("Add a definition to Something");
   }
@@ -68,12 +68,12 @@ public class AppTest extends FluentTest {
     fill("#word").with("Something");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Something"));
+    click("#word1");
     click("a", withText("Add a new definition"));
     fill("#definition").with("a single distinct meaningful element of speech or writing");
     submit(".btn");
     click("a", withText("View Words"));
-    click("a", withText("Something"));
+    click("#word1");
     assertThat(pageSource()).contains("a single distinct meaningful element of speech or writing");
   }
 
